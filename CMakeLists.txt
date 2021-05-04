@@ -9,4 +9,4 @@ add_executable(dsh
         src/character.cpp
         src/character.h
         src/race.h
-        src/utest.cpp)
+        src/utest.cpp src/job.cpp src/job.h src/race.cpp)

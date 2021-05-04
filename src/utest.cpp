@@ -1,9 +1,10 @@
 #include <iostream>
 #include "character.h"
-
+#include "race.h"
+#include "job.h"
 /* unit test for character creation */ 
 
-int main(void)
+int main()
 {
     bool quit = false;
     std::string in; 
@@ -17,15 +18,15 @@ int main(void)
 
 	std::cin >> in;
 	choice = std::stoi(in);
+	Race init_race;
+	Class init_class = FIGHTER;
 
 	switch(choice)
 	{
 	case 1:
 	{
-	    std::cout << "dwarf()\n";
-	    auto *pc = new Dwarf("bruenor");
-	    pc->print(); 
-      	    break;
+	    init_race = DWARF;
+	    break;
 	}
 	case 2:
 	    quit = true;
@@ -33,6 +34,8 @@ int main(void)
 	default:
 	    std::cout << "not valid" << std::endl;
 	}
+	PC *pc = new PC("brueger", init_race, init_class);
+	pc->print();
 
 	
 

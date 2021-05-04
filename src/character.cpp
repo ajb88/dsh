@@ -2,15 +2,24 @@
 
 void Character::print()
 {
-    std::cout <<"Name: " << name << std::endl;
-    std::cout << "STR: " << str << std::endl;
-    std::cout << "DEX: " << dex << std::endl;
-    std::cout << "CON: " << con << std::endl;
-    std::cout << "WIS: " << wis << std::endl;
-    std::cout << "CHA: " << cha << std::endl;
+    std::cout << "Name: " << _name << std::endl;
+    std::cout << "STR: " << _str << std::endl;
+    std::cout << "DEX: " << _dex << std::endl;
+    std::cout << "CON: " << _con << std::endl;
+    std::cout << "WIS: " << _wis << std::endl;
+    std::cout << "CHA: " << _cha << std::endl;
 }
 
-Dwarf::Dwarf(const std::string &name) : Character(name)
+
+PC::PC(std::string name, Race init_race, Class init_class) :
+        Character(std::move(name)), _race(init_race), _class(init_class)
 {
-    con += 2;
+    switch(_race)
+    {
+        case DWARF:
+        {
+            Dwarf::create(this);
+        }
+    }
+
 }

@@ -1,7 +1,14 @@
-#ifndef RACE_H
-#define RACE_H
+#ifndef DSH_RACE_H
+#define DSH_RACE_H
+
+#include "character.h"
+
+class PC;
 
 class Dwarf
 {
-    public
-}
+public:
+    static void create(PC *pc);
+};
+
+#endif
