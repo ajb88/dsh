@@ -11,37 +11,17 @@ int main()
     int choice; 
     
     std::cout <<"character creation menu" << std::endl;
-
-    while(!quit)
-    {
-	std::cout << "(1) Dwarf\n(2) Quit" << std::endl;
-
-	std::cin >> in;
-	choice = std::stoi(in);
-	Race init_race;
+	Race init_race = DWARF;
 	Class init_class = FIGHTER;
 
-	switch(choice)
-	{
-	case 1:
-	{
-	    init_race = DWARF;
-	    break;
-	}
-	case 2:
-	    quit = true;
-	    break; 
-	default:
-	    std::cout << "not valid" << std::endl;
-	}
 	PC *pc = new PC("brueger", init_race, init_class);
-	pc->print();
+	STAT stats[] = {STR, CON, WIS, CHA, DEX, INT};
+	pc->set_stats(stats);
 
-	
 
-	
-	
-    }
+
+    pc->print();
+
         
     return 0; 
 }
